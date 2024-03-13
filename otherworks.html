@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Other - Maja Braumberger</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Coolvetica', sans-serif;
+        color: white;
+        background-color: black; 
+    }
+
+    header {
+        background-color: rgba(17, 17, 17, 0.8); 
+        padding: 20px 0;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        transition: top 0.3s; 
+    }
+
+    header.hidden {
+        top: -60px; 
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 24px; 
+        font-weight: bold;
+        text-transform: lowercase; 
+        text-align: center; 
+    }
+
+    nav {
+        padding: 20px 0;
+        text-align: center;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .page-link {
+        color: gray; 
+        text-decoration: none;
+        margin: 0 10px;
+        text-transform: lowercase; 
+        font-weight: bold; 
+    }
+
+    .page-link:hover {
+        color: white; 
+    }
+
+    .gallery-container {
+        padding: 20px;
+        margin-top: 130px; 
+    }
+
+    .gallery-item {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center; 
+    }
+
+    .gallery-item img {
+        max-width: 100%; 
+        height: auto; 
+    }
+
+    .big-image {
+        width: 70%; 
+        margin: 0 auto; 
+        margin-bottom: 20px;
+    }
+
+    .big-image img {
+        width: 100%;
+        display: block;
+    }
+
+    .vertical-gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        padding: 20px;
+        margin-top: 60px; 
+    }
+
+    .vertical-gallery-item {
+        width: calc(40% - 20px); 
+        margin-bottom: 20px;
+    }
+
+    .vertical-gallery-item img {
+        width: 80%; 
+        display: block;
+        margin: 0 auto; 
+    }
+
+    footer {
+        padding: 10px 0;
+        text-align: center;
+        position: fixed;
+        bottom: -60px; 
+        width: 100%;
+        z-index: 1;
+        background-color: rgba(17, 17, 17, 0.8);
+        opacity: 0;
+        transition: bottom 0.5s; 
+    }
+
+    footer.visible {
+        bottom: 0; 
+    }
+
+    footer a {
+        color: gray;
+        text-decoration: none;
+        transition: color 0.3s;
+        margin: 0 10px;
+        text-transform: lowercase; 
+    }
+
+    footer a:hover {
+        color: white;
+    }
+
+    footer a.instagram {
+        font-weight: bold; 
+    }
+
+    @media only screen and (max-width: 600px) {
+        .gallery-item {
+            width: calc(100% - 20px); 
+            margin: 0 auto; 
+        }
+
+        .vertical-gallery-item {
+            width: calc(80% - 20px);
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>other</h1>
+    <nav>
+        <a href="index.html" class="page-link">Home</a>
+        <a href="about.html" class="page-link">About</a>
+        <a href="gallery.html" class="page-link">Gallery</a>
+        <a href="contact.html" class="page-link">Contact</a>
+        <a href="otherworks.html" class="page-link">Other</a>
+    </nav>
+</header>
+
+<br>
+<br>
+<br>
+<div class="vertical-gallery-container">
+    <div class="vertical-gallery-item">
+        <img src="20.jpg" alt="Vertical Photo 1">
+    </div>
+    <div class="vertical-gallery-item">
+        <img src="21.jpg" alt="Vertical Photo 2">
+    </div>
+
+
+<div class="big-image">
+    <img src="22.jpg" alt="Large Photo">
+</div>
+
+
+<footer>
+    <a href="https://instagram.com/majabraumberger" title="Instagram Account" class="instagram">instagram account</a>
+    <p style="font-size: 12px; text-align: center;">© 2024 Maja Braumberger</p>
+</footer>
+
+<script>
+    window.addEventListener('scroll', function() {
+        
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 50) { 
+            document.querySelector('header').classList.add('hidden');
+        } else {
+            document.querySelector('header').classList.remove('hidden'); 
+        }
+    });
+</script>
+</body>
+</html>
