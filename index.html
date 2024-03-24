@@ -1,171 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="skullfavicon.png" type="image/png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inside a Locked Room - Maja Braumberger</title>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
+    <link rel="icon" href="skullfavicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inside a Locked Room - Maja Braumberger</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
 
-    @media only screen and (max-width: 600px) {
+        /* Media Queries */
+        @media only screen and (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+
+            nav {
+                padding: 10px 0;
+            }
+
+            .small-image {
+                width: calc(50% - 5px);
+            }
+        }
+
+        @media only screen and (min-width: 601px) {
+            .small-images {
+                justify-content: center;
+            }
+        }
+
+        /* Global Styles */
         body {
-            font-size: 14px; 
+            margin: 0;
+            padding: 0;
+            font-family: 'Coolvetica', sans-serif;
+            color: white;
+            background-color: black;
+        }
+
+        header, footer {
+            background-color: rgba(17, 17, 17, 0.8);
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            padding: 0;
+            text-align: center;
+            width: 100%;
+            z-index: 1;
+            transition: top 0.5s;
+        }
+
+        header.hidden {
+            top: -60px;
         }
 
         header h1 {
-            font-size: 20px; 
+            margin: 0;
+            font-size: 27px;
+            font-weight: bold;
+            text-transform: lowercase;
+            text-align: center;
         }
 
         nav {
-            padding: 10px 0; 
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            z-index: 1;
+            transition: top 0.5s;
+        }
+
+        nav.hidden {
+            top: -60px;
+        }
+
+        .page-link {
+            color: gray;
+            text-decoration: none;
+            margin: 0 10px;
+            text-transform: lowercase;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        .page-link:hover {
+            color: white;
+        }
+
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .content {
+            padding-top: 120px;
+            text-align: center;
+        }
+
+        .small-images {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
         }
 
         .small-image {
-            width: calc(50% - 5px); 
+            width: calc(33.33% - 10px);
+            height: auto;
+            margin-right: 0;
         }
-    }
 
-    @media only screen and (min-width: 601px) {
-        .small-images {
-            justify-content: center; 
+        .large-image {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
         }
-    }
 
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Coolvetica', sans-serif;
-        color: white;
-        background-color: black; 
-    }
-
-    header, footer {
-        background-color: rgba(17, 17, 17, 0.8); 
-        opacity: 0;
-        animation: fadeIn 1s forwards;
-    }
-
-    @keyframes fadeIn {
-        from {
+        footer {
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: -60px;
+            width: 100%;
+            z-index: 1;
+            background-color: rgba(17, 17, 17, 0.8);
             opacity: 0;
+            animation: fadeIn 1s forwards;
+            transition: bottom 0.5s;
         }
-        to {
-            opacity: 1;
+
+        footer.visible {
+            bottom: 0;
         }
-    }
 
-    header {
-        padding: 0;
-        text-align: center;
-        width: 100%;
-        z-index: 1;
-        transition: top 0.5s; 
-    }
+        footer a {
+            color: gray;
+            text-decoration: none;
+            transition: color 0.3s;
+            margin: 0 10px;
+            text-transform: lowercase;
+        }
 
-    header.hidden {
-        top: -60px; 
-    }
+        footer a:hover {
+            color: white;
+        }
 
-    header h1 {
-        margin: 0;
-        font-size: 27px; 
-        font-weight: bold;
-        text-transform: lowercase; 
-        text-align: center; 
-    }
-
-    nav {
-        padding: 20px 0;
-        text-align: center;
-        width: 100%;
-        z-index: 1;
-        transition: top 0.5s; 
-    }
-
-    nav.hidden {
-        top: -60px; 
-    }
-
-    .page-link {
-        color: gray; 
-        text-decoration: none;
-        margin: 0 10px;
-        text-transform: lowercase; 
-        transition: color 0.3s; 
-        font-weight: bold; 
-    }
-
-    .page-link:hover {
-        color: white; 
-    }
-
-    .header-image {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .content {
-        padding-top: 120px;
-        text-align: center;
-    }
-
-    .small-images {
-        display: flex;
-        justify-content: space-between; 
-        margin-top: 20px;
-    }
-
-    .small-image {
-        width: calc(33.33% - 10px); 
-        height: auto;
-        margin-right: 0; 
-    }
-
-    .large-image {
-        width: 100%;
-        height: auto;
-        margin-top: 20px; 
-    }
-
-    footer {
-        padding: 10px 0;
-        text-align: center;
-        position: fixed;
-        bottom: -60px; 
-        width: 100%;
-        z-index: 1;
-        background-color: rgba(17, 17, 17, 0.8);
-        opacity: 0;
-        animation: fadeIn 1s forwards;
-        transition: bottom 0.5s; 
-    }
-
-    footer.visible {
-        bottom: 0; 
-    }
-
-    footer a {
-        color: gray;
-        text-decoration: none;
-        transition: color 0.3s;
-        margin: 0 10px;
-        text-transform: lowercase; 
-    }
-
-    footer a:hover {
-        color: white;
-    }
-
-    footer a.instagram {
-        font-weight: bold; 
-    }
-</style>
+        footer a.instagram {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 <header>
-<br>
+    <br>
     <h1>inside a locked room</h1>
     <nav>
         <a href="index.html" class="page-link">Home</a>
@@ -176,50 +178,33 @@
     </nav>
 </header>
 <img class="header-image" src="skull.jpg" alt="Header Image">
-
-    <div class="small-images">
-        <img class="small-image" src="1.jpg" alt="Small Image 1">
-        <img class="small-image" src="2.jpg" alt="Small Image 2">
-        <img class="small-image" src="3.jpg" alt="Small Image 3">
-    </div>
-    <img class="large-image" src="4.jpg" alt="Large Image">
+<div class="small-images">
+    <img class="small-image" src="1.jpg" alt="Small Image 1">
+    <img class="small-image" src="2.jpg" alt="Small Image 2">
+    <img class="small-image" src="3.jpg" alt="Small Image 3">
 </div>
+<img class="large-image" src="4.jpg" alt="Large Image">
 <footer>
+    <div align=center><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-ydZ8xZWZCc7Za2yA-29.gif' border='0' alt='conter12'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=ydZ8xZWZCc7Za2yA'></script></div>
     <a href="https://instagram.com/majabraumberger" title="Instagram Account" class="instagram">instagram account</a>
     <p style="font-size: 12px; text-align: center;">© 2024 Maja Braumberger</p>
 </footer>
-
 <script>
     window.addEventListener('scroll', function() {
-        
         var visibleHeight = window.innerHeight;
-
-        
         var totalHeight = document.body.clientHeight;
-
-        
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        
         var remainingHeight = totalHeight - (visibleHeight + scrollTop);
-
-        
         var footerHeight = document.querySelector('footer').offsetHeight;
         if (remainingHeight < footerHeight) {
-            
             document.querySelector('footer').classList.add('visible');
         } else {
-           
             document.querySelector('footer').classList.remove('visible');
         }
-
-        
         if (scrollTop > (document.querySelector('.large-image').offsetTop - visibleHeight)) {
-            
             document.querySelector('header').classList.add('hidden');
             document.querySelector('nav').classList.add('hidden');
         } else {
-          
             document.querySelector('header').classList.remove('hidden');
             document.querySelector('nav').classList.remove('hidden');
         }
