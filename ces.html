@@ -21,9 +21,7 @@
     padding: 20px;
   }
   .image {
-    width: 90%; 
-    margin: 10px auto; 
-    display: block;
+    margin: 10px auto;
     box-sizing: border-box;
   }
   .image img {
@@ -31,15 +29,18 @@
     border-radius: 10px;
     outline: none;
   }
-  .large-image {
-    width: 90%; 
-    max-width: 600px;
-    margin: 0 auto; 
+
+  .image:nth-child(2) img, 
+  .image:nth-child(3) img  {
+    width: 50%;
   }
-  .large-image img {
-    width: 100%; 
-    border-radius: 10px;
-    margin-top: 20px; 
+
+
+  @media only screen and (max-width: 600px) {
+    .image:nth-child(2) img, 
+    .image:nth-child(3) img  {
+      width: 100%; 
+    }
   }
 </style>
 </head>
@@ -48,7 +49,7 @@
     <p>there's no going back</p>
   </div>
   <div class="gallery">
-    <div class="image"> 
+    <div class="image">
       <img src="ces1.jpg" alt="Image 1">
     </div>
     <div class="image">
@@ -57,7 +58,7 @@
     <div class="image">
       <img src="ces3.jpg" alt="Image 3">
     </div>
-    <div class="image"> 
+    <div class="image">
       <img src="ces4.jpg" alt="Image 4">
     </div>
     <div class="image">
