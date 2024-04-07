@@ -31,8 +31,15 @@
     border-radius: 10px;
     outline: none;
   }
-
-  .large-image img {
+  @media (max-width: 768px) { 
+    .image {
+      width: 90%; 
+    }
+    .large-image {
+      width: 90%; 
+    }
+  }
+  .large-image {
     width: 70%; 
     max-width: 100%; 
     display: block; 
@@ -53,9 +60,9 @@
     <div class="image">
       <img src="fd2.jpg" alt="Image 2">
     </div>
-    <div class="Large Image">
+    <div class="image">
       <img src="fd3.jpg" alt="Image 3">
     </div>
-   
- </body>
+  </div>
+</body>
 </html>
