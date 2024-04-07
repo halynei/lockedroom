@@ -21,7 +21,7 @@
     padding: 20px;
   }
   .image {
-    width: 30%;
+    width: 90%; 
     margin: 10px auto; 
     display: block;
     box-sizing: border-box;
@@ -31,12 +31,13 @@
     border-radius: 10px;
     outline: none;
   }
-
-  .large-image img {
-    width: 70%; 
-    max-width: 100%; 
-    display: block; 
+  .large-image {
+    width: 90%; 
+    max-width: 600px;
     margin: 0 auto; 
+  }
+  .large-image img {
+    width: 100%; 
     border-radius: 10px;
     margin-top: 20px; 
   }
@@ -47,7 +48,7 @@
     <p>there's no going back</p>
   </div>
   <div class="gallery">
-    <div class="Large Image">
+    <div class="image"> 
       <img src="ces1.jpg" alt="Image 1">
     </div>
     <div class="image">
@@ -56,13 +57,12 @@
     <div class="image">
       <img src="ces3.jpg" alt="Image 3">
     </div>
-    <div class="Large Image">
+    <div class="image"> 
       <img src="ces4.jpg" alt="Image 4">
     </div>
-    <div class="Large Image">
+    <div class="image">
       <img src="ces5.jpg" alt="Image 5">
     </div>
   </div>
-
- </body>
+</body>
 </html>
