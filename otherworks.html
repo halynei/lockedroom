@@ -8,6 +8,29 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
 
+    @media only screen and (max-width: 600px) {
+        header {
+            padding: 10px 0; 
+        }
+
+        header h1 {
+            font-size: 20px; 
+        }
+
+        nav {
+            padding: 10px 0; 
+        }
+
+        .gallery-item {
+            width: calc(100% - 20px); 
+            margin: 0 auto; 
+        }
+
+        .vertical-gallery-item {
+            width: calc(80% - 20px);
+        }
+    }
+
     body {
         margin: 0;
         padding: 0;
@@ -24,7 +47,7 @@
         top: 0;
         width: 100%;
         z-index: 1;
-        transition: top 0.3s; 
+        transition: top 0.5s; 
     }
 
     header.hidden {
@@ -37,6 +60,7 @@
         font-weight: bold;
         text-transform: lowercase; 
         text-align: center; 
+        padding: 10px 0; 
     }
 
     nav {
@@ -46,12 +70,16 @@
         z-index: 1;
     }
 
+    nav.hidden {
+        top: -60px; 
+    }
+
     .page-link {
-        color: gray; 
+        color: darkgray; 
         text-decoration: none;
         margin: 0 10px;
         text-transform: lowercase; 
-        transition: color 0.3s;
+        transition: color 0.3s; 
         font-weight: bold; 
     }
 
@@ -119,6 +147,7 @@
 
     footer.visible {
         bottom: 0; 
+        opacity: 1; 
     }
 
     footer a {
@@ -135,17 +164,6 @@
 
     footer a.instagram {
         font-weight: bold; 
-    }
-
-    @media only screen and (max-width: 600px) {
-        .gallery-item {
-            width: calc(100% - 20px); 
-            margin: 0 auto; 
-        }
-
-        .vertical-gallery-item {
-            width: calc(80% - 20px);
-        }
     }
 </style>
 </head>
@@ -171,12 +189,11 @@
     <div class="vertical-gallery-item">
         <img src="21.jpg" alt="Vertical Photo 2">
     </div>
-
+</div>
 
 <div class="big-image">
     <img src="22.jpg" alt="Large Photo">
 </div>
-
 
 <footer>
     <a href="https://instagram.com/majabraumberger" title="Instagram Account" class="instagram">instagram account</a>
@@ -185,7 +202,6 @@
 
 <script>
     window.addEventListener('scroll', function() {
-        
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
         if (scrollTop > 50) { 
