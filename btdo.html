@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strona z Coolvetica</title>
+<style>
+    @font-face {
+        font-family: 'Coolvetica';
+        src: url('coolvetica.woff') format('woff'); /* ścieżka do pliku .woff */
+        /* Możesz dodać tutaj również wersje dla innych formatów czcionek, np. .woff2 */
+    }
+
+    body {
+        background-color: black;
+        color: white;
+        font-family: 'Coolvetica', Arial, sans-serif; /* Użyj Coolvetica jako pierwszej opcji, jeśli jest dostępna */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .sentence-container {
+        margin-bottom: 50px;
+    }
+
+    .sentence {
+        font-size: 25px;
+        opacity: 0;
+        animation: fade-in 1.5s ease forwards;
+        margin-bottom: 20px;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .arrow {
+        visibility: hidden;
+        margin-top: 40px; /* Odległość od ostatniego zdania */
+        display: inline-block; /* Ustawienie strzałki jako inline-block, aby można było użyć text-align: center */
+        font-size: 40px;
+        position: relative;
+        text-decoration: none; /* Usunięcie podkreślenia */
+        color: white; /* Kolor biały */
+        cursor: pointer;
+    }
+
+    .arrow .arrow-content {
+        position: relative;
+        z-index: 1; /* Umieść treść strzałki na wierzchu */
+        animation: blink 2.5s infinite 5s; /* Animacja mrugania */
+    }
+
+    @keyframes blink {
+        0%, 50%, 100% {
+            opacity: 1;
+        }
+        25%, 75% {
+            opacity: 0;
+        }
+    }
+
+
+</style>
+</head>
+<body>
+    <div class="sentence-container">
+        <div class="sentence" style="animation-delay: 1s;">Who are we really?</div>
+        <div class="sentence" style="animation-delay: 3s;">Concepts, whose names we use to introduce ourselves?</div>
+        <div class="sentence" style="animation-delay: 8s;">Or are we just one of many elements in a world that explores itself?</div>
+    </div>
+
+    <a href="btdogallery.html" class="arrow">
+        <span class="arrow-content">✦</span>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sentences = document.querySelectorAll('.sentence');
+            var lastSentence = sentences[sentences.length - 1];
+            var arrow = document.querySelector('.arrow');
+
+            lastSentence.addEventListener('animationend', function() {
+                arrow.style.visibility = 'visible';
+            });
+        });
+    </script>
+</body>
+</html>

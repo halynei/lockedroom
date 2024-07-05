@@ -143,24 +143,51 @@
         margin-top: 5px; 
     }
 
-    .placeholder-link {
+.placeholder-link1 {
         color: gray;
         text-decoration: none;
         margin: 10px auto; 
         display: block; 
         font-weight: bold;
-        font-size: 20px;
+        font-size: 22px;
         transition: color 0.3s, background-color 0.3s;
     }
 
-    .placeholder-link:hover {
+
+    .placeholder-link2 {
+        color: gray;
+        text-decoration: none;
+        margin: 10px auto; 
+        display: block; 
+        font-weight: bold;
+        font-size: 18px;
+        transition: color 0.3s, background-color 0.3s;
+    }
+
+.placeholder-link1:hover {
+        color: white;
+        background-color: transparent; 
+    }
+
+    .placeholder-link2:hover {
         color: white;
         background-color: transparent; 
     }
 
  
     .title {
-        font-size: 30px;
+        font-size: 32px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        width: 80%;
+        max-width: 800px;
+        line-height: 1;
+        margin: 5px auto 5px auto; 
+        padding: 10px;
+    }
+  .title2 {
+        font-size: 25px;
         font-weight: bold;
         color: white;
         text-align: center;
@@ -172,13 +199,14 @@
     }
 
 
+
     .title:hover {
         color: white;
         background-color: transparent; 
     }
 
   .content {
-        font-size: 20px;
+        font-size: 12px;
         font-weight: medium;
         color: rgb(211,211,211);
         text-align: center;
@@ -230,9 +258,7 @@
     <nav>
         <a href="index.html" class="page-link">Home</a>
         <a href="about.html" class="page-link">About</a>
-        <a href="gallery.html" class="page-link">Gallery</a>
         <a href="contact.html" class="page-link">Contact</a>
-        <a href="otherworks.html" class="page-link">Other</a>
     </nav>
 </header>
 
@@ -243,21 +269,31 @@
 <p>main projects</p>
 </div>
 
-<div class="content">
-<p>coming soon!</>
-</div>
+<div class="link-container">
+	<a href="backtodayone.html" class="placeholder-link1">back to day one</a> <p>[new]</p>
 
+</div>
+<br>
+<br>
+<br>
+<br>
 <div class="link container">
 </div>
 
-<div class="title">
+<div class="title2">
 <p>other projects</p>
 </div>
 
+<div class="content">
+<p>coming soon!</p>
+</div>
+
 <div class="link-container">
-    <a href="letgo.html" class="placeholder-link">let go</a>
-    <a href="o.html" class="placeholder-link">◯</a>
-    <a href="fd.html" class="placeholder-link">fourth dimension</a>
+    <a href="letgo.html" class="placeholder-link2"></a>
+<br>
+    <a href="o.html" class="placeholder-link2"></a>
+<br>
+    <a href="fd.html" class="placeholder-link2"></a>
 </div>
 
 <div class="vertical-gallery-container">
@@ -273,8 +309,7 @@
 </div>
 
 <footer>
-    <a href="https://instagram.com/majabraumberger" title="Instagram Account" class="instagram">instagram account</a>
-    <p style="font-size: 12px; text-align: center;">© 2024 Maja Braumberger</p>
+     <p style="font-size: 12px; text-align: center;">© 2024 Maja Braumberger</p>
 </footer>
 
 <script>
