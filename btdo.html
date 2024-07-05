@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strona z Coolvetica</title>
+<title>Back to Day One</title>
 <style>
     @font-face {
         font-family: 'Coolvetica';
-        src: url('coolvetica.woff') format('woff'); /* ścieżka do pliku .woff */
-        /* Możesz dodać tutaj również wersje dla innych formatów czcionek, np. .woff2 */
+        src: url('coolvetica.woff') format('woff'); 
+        
     }
 
     body {
         background-color: black;
         color: white;
-        font-family: 'Coolvetica', Arial, sans-serif; /* Użyj Coolvetica jako pierwszej opcji, jeśli jest dostępna */
+        font-family: 'Coolvetica', Arial, sans-serif; 
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -46,19 +46,19 @@
 
     .arrow {
         visibility: hidden;
-        margin-top: 40px; /* Odległość od ostatniego zdania */
-        display: inline-block; /* Ustawienie strzałki jako inline-block, aby można było użyć text-align: center */
+        margin-top: 40px;
+        display: inline-block; 
         font-size: 40px;
         position: relative;
-        text-decoration: none; /* Usunięcie podkreślenia */
-        color: white; /* Kolor biały */
+        text-decoration: none; 
+        color: white; 
         cursor: pointer;
     }
 
     .arrow .arrow-content {
         position: relative;
-        z-index: 1; /* Umieść treść strzałki na wierzchu */
-        animation: blink 2.5s infinite 5s; /* Animacja mrugania */
+        z-index: 1; 
+        animation: blink 2.5s infinite 5s; 
     }
 
     @keyframes blink {
