@@ -1,256 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="skullfavicon.png" type="image/png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery - Maja Braumberger</title>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
+    <link rel="icon" href="skullfavicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Maja Braumberger</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
 
-       @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 600px) {
+            header {
+                padding: 10px 0; 
+            }
+
+            header h1 {
+                font-size: 20px; 
+            }
+
+            nav {
+                padding: 10px 0; 
+            }
+
+            footer p {
+                font-size: 10px; 
+            }
+
+            .forming {
+                font-size: 12px;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Coolvetica', sans-serif;
+            color: white;
+            background-color: black; 
+        }
+
         header {
-            padding: 10px 0; 
+            background-color: rgba(17, 17, 17, 0.8);
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            transition: top 0.5s; 
+        }
+
+        header.hidden {
+            top: -60px; 
         }
 
         header h1 {
-            font-size: 20px; 
+            margin: 0;
+            font-size: 24px; 
+            font-weight: bold;
+            text-transform: lowercase; 
+            text-align: center; 
+            padding: 10px 0; 
         }
 
         nav {
             padding: 10px 0; 
+            text-align: center;
+            width: 100%;
+            z-index: 1;
         }
 
-        nav.hidden {
-            top: -50px; 
+        .page-link {
+            color: darkgray; 
+            text-decoration: none;
+            margin: 0 10px;
+            text-transform: lowercase; 
+            transition: color 0.3s; 
+            font-weight: bold; 
         }
 
-        footer p {
-            font-size: 10px; 
+        .page-link:hover {
+            color: white; 
         }
 
-        .forming {
+        .gallery-container {
+            padding: 20px;
+            margin-top: 130px; 
+        }
+
+        .big-image {
+            width: 70%; 
+            margin: 0 auto; 
+            margin-bottom: 20px;
+        }
+
+        .big-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .vertical-gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            padding: 20px;
+            margin-top: 60px; 
+        }
+
+        .vertical-gallery-item {
+            width: calc(40% - 20px); 
+            margin-bottom: 20px;
+        }
+
+        .vertical-gallery-item img {
+            width: 80%; 
+            display: block;
+            margin: 0 auto; 
+        }
+
+        .link-container {
+            text-align: center;
+            margin-top: 5px; 
+        }
+
+        .placeholder-link1 {
+            color: gray;
+            text-decoration: none;
+            margin: 10px auto; 
+            display: block; 
+            font-weight: bold;
+            font-size: 22px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .placeholder-link2 {
+            color: gray;
+            text-decoration: none;
+            margin: 10px auto; 
+            display: block; 
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .placeholder-link1:hover {
+            color: white;
+            background-color: transparent; 
+        }
+
+        .placeholder-link2:hover {
+            color: white;
+            background-color: transparent; 
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+            line-height: 1;
+            margin: 5px auto; 
+            padding: 10px;
+        }
+
+        .title2 {
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+            line-height: 1;
+            margin: 5px auto; 
+            padding: 10px;
+        }
+
+        .title:hover {
+            color: white;
+            background-color: transparent; 
+        }
+
+        .content {
             font-size: 12px;
+            font-weight: medium;
+            color: rgb(211,211,211);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            line-height: 1.5;
+            margin: 10px auto; 
+            padding: 20px;
         }
-    }
 
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Coolvetica', sans-serif;
-        color: white;
-        background-color: black; 
-    }
+        footer {
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: -60px; 
+            width: 100%;
+            z-index: 1;
+            background-color: rgba(17, 17, 17, 0.8);
+            opacity: 0;
+            transition: bottom 0.5s; 
+        }
 
-    header {
-        background-color: rgba(17, 17, 17, 0.8);
-        padding: 20px 0;
-        text-align: center;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1;
-        transition: top 0.5s; 
-    }
+        footer.visible {
+            bottom: 0; 
+            opacity: 1; 
+        }
 
-    header.hidden {
-        top: -60px; 
-    }
+        footer a {
+            color: gray;
+            text-decoration: none;
+            transition: color 0.3s;
+            margin: 0 10px;
+            text-transform: lowercase; 
+        }
 
-    header h1 {
-        margin: 0;
-        font-size: 24px; 
-        font-weight: bold;
-        text-transform: lowercase; 
-        text-align: center; 
-        padding: 10px 0; 
-    }
+        footer a:hover {
+            color: white;
+        }
 
-    nav {
-        padding: 10px 0; 
-        text-align: center;
-        width: 100%;
-        z-index: 1;
-    }
-
-    nav.hidden {
-        top: -60px; 
-    }
-
-    .page-link {
-        color: darkgray; 
-        text-decoration: none;
-        margin: 0 10px;
-        text-transform: lowercase; 
-        transition: color 0.3s; 
-        font-weight: bold; 
-    }
-
-    .page-link:hover {
-        color: white; 
-    }
-
-    .page-link {
-        color: darkgray; 
-        text-decoration: none;
-        margin: 0 10px;
-        text-transform: lowercase; 
-        transition: color 0.3s; 
-        font-weight: bold; 
-    }
-
-    .page-link:hover {
-        color: white; 
-    }
-
-    .gallery-container {
-        padding: 20px;
-        margin-top: 130px; 
-    }
-
-    .big-image {
-        width: 70%; 
-        margin: 0 auto; 
-        margin-bottom: 20px;
-    }
-
-    .big-image img {
-        width: 100%;
-        display: block;
-    }
-
-    .vertical-gallery-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; 
-        padding: 20px;
-        margin-top: 60px; 
-    }
-
-    .vertical-gallery-item {
-        width: calc(40% - 20px); 
-        margin-bottom: 20px;
-    }
-
-    .vertical-gallery-item img {
-        width: 80%; 
-        display: block;
-        margin: 0 auto; 
-    }
-
-    .link-container {
-        text-align: center;
-        margin-top: 5px; 
-    }
-
-.placeholder-link1 {
-        color: gray;
-        text-decoration: none;
-        margin: 10px auto; 
-        display: block; 
-        font-weight: bold;
-        font-size: 22px;
-        transition: color 0.3s, background-color 0.3s;
-    }
-
-
-    .placeholder-link2 {
-        color: gray;
-        text-decoration: none;
-        margin: 10px auto; 
-        display: block; 
-        font-weight: bold;
-        font-size: 18px;
-        transition: color 0.3s, background-color 0.3s;
-    }
-
-.placeholder-link1:hover {
-        color: white;
-        background-color: transparent; 
-    }
-
-    .placeholder-link2:hover {
-        color: white;
-        background-color: transparent; 
-    }
-
- 
-    .title {
-        font-size: 32px;
-        font-weight: bold;
-        color: white;
-        text-align: center;
-        width: 80%;
-        max-width: 800px;
-        line-height: 1;
-        margin: 5px auto 5px auto; 
-        padding: 10px;
-    }
-  .title2 {
-        font-size: 25px;
-        font-weight: bold;
-        color: white;
-        text-align: center;
-        width: 80%;
-        max-width: 800px;
-        line-height: 1;
-        margin: 5px auto 5px auto; 
-        padding: 10px;
-    }
-
-
-
-    .title:hover {
-        color: white;
-        background-color: transparent; 
-    }
-
-  .content {
-        font-size: 12px;
-        font-weight: medium;
-        color: rgb(211,211,211);
-        text-align: center;
-        width: 90%;
-        max-width: 800px;
-        line-height: 1.5;
-        margin: 10px auto 10px auto; 
-        padding: 20px;
-    }
-
-
-    footer {
-        padding: 10px 0;
-        text-align: center;
-        position: fixed;
-        bottom: -60px; 
-        width: 100%;
-        z-index: 1;
-        background-color: rgba(17, 17, 17, 0.8);
-        opacity: 0;
-        transition: bottom 0.5s; 
-    }
-
-    footer.visible {
-        bottom: 0; 
-        opacity: 1; 
-    }
-
-    footer a {
-        color: gray;
-        text-decoration: none;
-        transition: color 0.3s;
-        margin: 0 10px;
-        text-transform: lowercase; 
-    }
-
-    footer a:hover {
-        color: white;
-    }
-
-    footer a.instagram {
-        font-weight: bold; 
-    }
-</style>
+        footer a.instagram {
+            font-weight: bold; 
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -266,12 +241,11 @@
 </div>
 
 <div class="title">
-<p>main projects</p>
+    <p>main projects</p>
 </div>
 
 <div class="link-container">
-	<a href="backtodayone.html" class="placeholder-link1">back to day one</a> <p>[new]</p>
-
+    <a href="backtodayone.html" class="placeholder-link1">back to day one</a> <p>[new]</p>
 </div>
 <br>
 <br>
@@ -281,18 +255,18 @@
 </div>
 
 <div class="title2">
-<p>other projects</p>
+    <p>other projects</p>
 </div>
 
 <div class="content">
-<p>coming soon!</p>
+    <p>coming soon!</p>
 </div>
 
 <div class="link-container">
     <a href="letgo.html" class="placeholder-link2"></a>
-<br>
+    <br>
     <a href="o.html" class="placeholder-link2"></a>
-<br>
+    <br>
     <a href="fd.html" class="placeholder-link2"></a>
 </div>
 
@@ -309,18 +283,30 @@
 </div>
 
 <footer>
-     <p style="font-size: 12px; text-align: center;">© 2024 Maja Braumberger</p>
+    <p style="font-size: 12px; text-align: center;">© 2024 Maja Braumberger</p>
 </footer>
 
 <script>
+    let lastScrollTop = 0;
     window.addEventListener('scroll', function() {
-        
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var header = document.querySelector('header');
+        var footer = document.querySelector('footer');
+        var windowHeight = window.innerHeight;
+        var documentHeight = document.body.scrollHeight;
+        var scrollPosition = window.scrollY + windowHeight;
 
-        if (scrollTop > 50) { 
-            document.querySelector('header').classList.add('hidden');
+        let currentScroll = window.scrollY;
+        if (currentScroll > lastScrollTop) {
+            header.classList.add('hidden');
         } else {
-            document.querySelector('header').classList.remove('hidden'); 
+            header.classList.remove('hidden');
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+
+        if (scrollPosition >= documentHeight) {
+            footer.classList.add('visible');
+        } else {
+            footer.classList.remove('visible');
         }
     });
 </script>
