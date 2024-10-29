@@ -1,39 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Locked Room</title>
-<style>
-  body {
-    background-color: black;
-    color: white;
-    font-family: 'Coolvetica', sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locked Room</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Coolvetica', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            opacity: 0;
+            transition: opacity 2s ease-in;
+        }
+        #text {
+            display: none;
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 <body>
-  <h1>Locked Room</h1>
-  <p>I'm lying here, lifeless
+    <h1 id="title">Locked Room</h1>
+    <p id="text"></p>
+
+    <script>
+        const title = document.getElementById("title");
+        const textElement = document.getElementById("text");
+        const textContent = `I'm lying here, lifeless
 in the corner of my cell,
 rotting in the mess
 I've made and known so well.
 
-One time, a storm came, one of many,
-along with the mind getting bleak and weary,
-I witnessed a thunder pierce right through the window,
+One time a storm came, one of many,
+along with the mind getting bleak and weary.
+I witnessed a thunder pierce right through the window -
 the wind rushed inside and whispered: "Flee, flee to the meadow!"
 
-I crawled outside, through the broken glass,
-in the middle of the field I fell and let the hours pass,
-remains of the transparent wall tore up all the closed cuts,
+I crawled outside through the broken glass,
+in the middle of the field I fell and let the hours pass.
+Remains of the transparent wall tore up all the closed cuts,
 and through them, the acid rain poured inside, dissolving my guts.
 
 And I waited for the goddamn Sun,
@@ -41,20 +55,38 @@ for it to reveal my overcoming; that I won.
 Then I stood up, nearly blind and sore,
 only to realise there's no one around, anymore.
 
-The triumph was never meant to last long -
+The triumph was never meant to last long;
 I got striked by the wind that came back so strong.
-Knocked out, I got dragged back to the locked room,
-Just to later be woken up by a familiar, filthy odor of doom.
+Knocked out, something dragged me back to the locked room,
+Then I got woken up by a familiar, filthy odor of doom.
 
 Now I'm one with the darkness
 in the corner of my cell,
 intertwined with the mess
 I've made and known so well.
 
+mb`;
 
+        function revealText() {
+            title.style.opacity = 1;
+            setTimeout(() => {
+                textElement.style.display = 'block';
+                let words = textContent.split(' ');
+                let index = 0;
 
+                function showWord() {
+                    if (index < words.length) {
+                        textElement.innerHTML += words[index] + ' ';
+                        index++;
+                        setTimeout(showWord, 200);
+                    }
+                }
 
-mb
-</p>
+                showWord();
+            }, 2000);
+        }
+
+        window.onload = revealText;
+    </script>
 </body>
 </html>
