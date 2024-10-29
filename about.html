@@ -12,23 +12,15 @@
         header {
             padding: 10px 0; 
         }
-
         header h1 {
             font-size: 20px; 
         }
-
         nav {
             padding: 10px 0; 
         }
-
-        nav.hidden {
-            top: -50px; 
-        }
-
         footer p {
             font-size: 10px; 
         }
-
         .content {
             font-size: 12px;
         }
@@ -62,19 +54,12 @@
         font-size: 24px; 
         font-weight: bold;
         text-transform: lowercase; 
-        text-align: center; 
         padding: 10px 0; 
     }
 
     nav {
         padding: 10px 0; 
         text-align: center;
-        width: 100%;
-        z-index: 1;
-    }
-
-    nav.hidden {
-        top: -60px; 
     }
 
     .page-link {
@@ -98,7 +83,11 @@
         width: 100%;
         z-index: 1;
         background-color: rgba(17, 17, 17, 0.8);
-        opacity: 1; 
+        transition: bottom 0.5s; 
+    }
+
+    footer.hidden {
+        bottom: -60px; 
     }
 
     footer a {
@@ -111,10 +100,6 @@
 
     footer a:hover {
         color: white;
-    }
-
-    footer a.instagram {
-        font-weight: bold; 
     }
 
     footer p {
@@ -137,28 +122,25 @@
 
     .content {
         font-size: 20px;
-        font-weight: medium;
         color: rgb(211,211,211);
         text-align: center;
         width: 90%;
         max-width: 800px;
         line-height: 1.5;
-        margin: 60px auto 60px auto; 
+        margin: 60px auto; 
         padding: 20px;
     }
 
     .separation {
         font-size: 30px;
-        font-weight: medium;
         color: white;
         text-align: center;
         width: 10%;
         max-width: 800px;
         line-height: 0.1;
-        margin: 10px auto 10px auto; 
+        margin: 10px auto; 
         padding: 1px;
     }
-
 </style>
 </head>
 <body>
@@ -167,16 +149,13 @@
     <nav>
         <a href="index.html" class="page-link">Home</a>
         <a href="gallery.html" class="page-link">Gallery</a>
-	<a href="contact.html" class="page-link">Contact</a>
+        <a href="contact.html" class="page-link">Contact</a>
     </nav>
 </header>
 
 <footer>
-       <p>© 2024 Maja Braumberger</p>
+    <p>© 2024 Maja Braumberger</p>
 </footer>
-
-<br>
-<br>
 
 <div class="title">
     <p>Why did I even bother creating this place?</p>
@@ -185,7 +164,6 @@
 <div class="separation">
 <p>✦</p>
 </div>
-
 
 <div class="content">
     <p>Some might question the necessity of running independent websites such as this, especially in the age of all-consuming, ever-expanding social media. Even though the last decade dominated by platforms from the category I've mentioned earlier has offered us the opportunity to reach the numbers of people we've never even thought of before, I still see the sense in bringing your own corner in the web to life.</p>
@@ -208,12 +186,27 @@
 </div>
 
 <div class="content">
-
     <p>And so I began sculpting the Frankenstein of websites in March of 2024 using a notepad app, with the help of various tools and tutorials on the Internet. The purpose of this site is to provide a clear, safe and independent board which I can use to hang my works on the way I want them to be viewed, and not the way a group of a hundred random web designers from California tells me to. This proto-gallery is, of course, under constant development and what you see here is just the beginning of what will come next. I've always dreamed of having my own place where I can leave sort of a record of myself since acknowledging the greater opportunities awaiting on the Internet... oh, to be that six-year-old discovering GIFs and Flash games again.</p>
 </div>
 
-<br>
-<br>
+<script>
+    window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
+        // Header behavior
+        if (scrollTop > 50) { 
+            document.querySelector('header').classList.add('hidden');
+        } else {
+            document.querySelector('header').classList.remove('hidden'); 
+        }
+
+        // Footer behavior
+        if (scrollTop + window.innerHeight < document.body.offsetHeight - 50) { 
+            document.querySelector('footer').classList.add('hidden');
+        } else {
+            document.querySelector('footer').classList.remove('hidden'); 
+        }
+    });
+</script>
 </body>
 </html>
