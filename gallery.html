@@ -12,19 +12,15 @@
             header {
                 padding: 10px 0; 
             }
-
             header h1 {
                 font-size: 20px; 
             }
-
             nav {
                 padding: 10px 0; 
             }
-
             footer p {
                 font-size: 10px; 
             }
-
             .forming {
                 font-size: 12px;
             }
@@ -58,8 +54,6 @@
             font-size: 24px; 
             font-weight: bold;
             text-transform: lowercase; 
-            text-align: center; 
-            padding: 10px 0; 
         }
 
         nav {
@@ -122,38 +116,23 @@
             margin-top: 5px; 
         }
 
-        .placeholder-link1 {
+        .placeholder-link1, .placeholder-link2 {
             color: gray;
             text-decoration: none;
             margin: 10px auto; 
             display: block; 
             font-weight: bold;
-            font-size: 22px;
             transition: color 0.3s, background-color 0.3s;
         }
 
-        .placeholder-link2 {
-            color: gray;
-            text-decoration: none;
-            margin: 10px auto; 
-            display: block; 
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s, background-color 0.3s;
-        }
+        .placeholder-link1 { font-size: 22px; }
+        .placeholder-link2 { font-size: 18px; }
 
-        .placeholder-link1:hover {
+        .placeholder-link1:hover, .placeholder-link2:hover {
             color: white;
-            background-color: transparent; 
         }
 
-        .placeholder-link2:hover {
-            color: white;
-            background-color: transparent; 
-        }
-
-        .title {
-            font-size: 32px;
+        .title, .title2 {
             font-weight: bold;
             color: white;
             text-align: center;
@@ -164,22 +143,8 @@
             padding: 10px;
         }
 
-        .title2 {
-            font-size: 25px;
-            font-weight: bold;
-            color: white;
-            text-align: center;
-            width: 80%;
-            max-width: 800px;
-            line-height: 1;
-            margin: 5px auto; 
-            padding: 10px;
-        }
-
-        .title:hover {
-            color: white;
-            background-color: transparent; 
-        }
+        .title { font-size: 32px; }
+        .title2 { font-size: 25px; }
 
         .content {
             font-size: 12px;
@@ -247,12 +212,6 @@
 <div class="link-container">
     <a href="backtodayone.html" class="placeholder-link1">back to day one</a> <p>[new]</p>
 </div>
-<br>
-<br>
-<br>
-<br>
-<div class="link container">
-</div>
 
 <div class="title2">
     <p>other projects</p>
@@ -289,21 +248,23 @@
 <script>
     let lastScrollTop = 0;
     window.addEventListener('scroll', function() {
-        var header = document.querySelector('header');
-        var footer = document.querySelector('footer');
-        var windowHeight = window.innerHeight;
-        var documentHeight = document.body.scrollHeight;
-        var scrollPosition = window.scrollY + windowHeight;
+        const header = document.querySelector('header');
+        const footer = document.querySelector('footer');
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.body.scrollHeight;
+        const scrollPosition = window.scrollY + windowHeight;
 
-        let currentScroll = window.scrollY;
+        const currentScroll = window.scrollY;
+
+        
         if (currentScroll > lastScrollTop) {
             header.classList.add('hidden');
         } else {
             header.classList.remove('hidden');
         }
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        lastScrollTop = Math.max(0, currentScroll);
 
-        if (scrollPosition >= documentHeight) {
+        if (scrollPosition >= documentHeight - 50) {
             footer.classList.add('visible');
         } else {
             footer.classList.remove('visible');
