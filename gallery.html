@@ -167,12 +167,12 @@
             z-index: 1;
             background-color: rgba(17, 17, 17, 0.8);
             opacity: 0;
-            transition: bottom 0.5s; 
+            transition: bottom 0.5s, opacity 0.5s;
         }
 
         footer.visible {
-            bottom: 0; 
-            opacity: 1; 
+            bottom: 0;
+            opacity: 1;
         }
 
         footer a {
@@ -247,8 +247,6 @@
 
 <script>
     let lastScrollTop = 0;
-    let footerVisible = false;
-    let hideFooterTimeout;
 
     window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
@@ -267,16 +265,9 @@
         lastScrollTop = Math.max(0, currentScroll);
 
         if (scrollPosition >= documentHeight - 50) {
-            clearTimeout(hideFooterTimeout);
-            if (!footerVisible) {
-                footer.classList.add('visible');
-                footerVisible = true;
-            }
-        } else if (footerVisible) {
-            hideFooterTimeout = setTimeout(() => {
-                footer.classList.remove('visible');
-                footerVisible = false;
-            }, 200);
+            footer.classList.add('visible');
+        } else {
+            footer.classList.remove('visible');
         }
     });
 </script>
