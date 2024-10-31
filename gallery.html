@@ -247,6 +247,9 @@
 
 <script>
     let lastScrollTop = 0;
+    let footerVisible = false;
+    let hideFooterTimeout;
+
     window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
         const footer = document.querySelector('footer');
@@ -256,7 +259,6 @@
 
         const currentScroll = window.scrollY;
 
-        
         if (currentScroll > lastScrollTop) {
             header.classList.add('hidden');
         } else {
@@ -265,9 +267,16 @@
         lastScrollTop = Math.max(0, currentScroll);
 
         if (scrollPosition >= documentHeight - 50) {
-            footer.classList.add('visible');
-        } else {
-            footer.classList.remove('visible');
+            clearTimeout(hideFooterTimeout);
+            if (!footerVisible) {
+                footer.classList.add('visible');
+                footerVisible = true;
+            }
+        } else if (footerVisible) {
+            hideFooterTimeout = setTimeout(() => {
+                footer.classList.remove('visible');
+                footerVisible = false;
+            }, 200);
         }
     });
 </script>
