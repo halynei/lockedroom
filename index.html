@@ -116,17 +116,18 @@
         .content {
             padding-top: 120px;
             text-align: center;
-	    font-weight: medium;
-	    font-size: 20px;
-	    color: rgb(211,211,211);
+            font-weight: medium;
+            font-size: 20px;
+            color: rgb(211,211,211);
         }
- .content2 {
+        
+        .content2 {
             padding-top: 30px;
             text-align: center;
-	    font-weight: medium;
-	font-style: italic;
-	    font-size: 10px;
-	    color: rgb(211,211,211);
+            font-weight: medium;
+            font-style: italic;
+            font-size: 10px;
+            color: rgb(211,211,211);
         }
 
         .small-images {
@@ -184,34 +185,31 @@
         footer a.instagram {
             font-weight: bold;
         }
- .separation {
-       padding-top: 60px;
+
+        .separation {
+            padding-top: 60px;
             text-align: center;
-	    font-weight: medium;
-	    font-size: 50px;
-	    color: white;
-    }
+            font-weight: medium;
+            font-size: 50px;
+            color: white;
+        }
 
-@keyframes fadeInImage {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+        @keyframes fadeInImage {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
 
-.header-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    opacity: 0; 
-    animation: fadeInImage 1s forwards; 
-}
-
-
-	
-
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0; 
+            animation: fadeInImage 1s forwards; 
+        }
     </style>
 </head>
 <body>
@@ -225,38 +223,37 @@
     </nav>
 </header>
 
-
 <img class="header-image" src="header.jpg" alt="Header Image">
 <br>
 <div class="content">
-	<p>Eyes evicted, depths wide open,</p>
-	<p>The barrier is finally broken.</p>
+    <p>Eyes evicted, depths wide open,</p>
+    <p>The barrier is finally broken.</p>
 
-<br>
-<br>
-<br>
-<br>
-<p>...</p>
-<br>
-<br>
-<br>
-<br>
-	<p>If that's the truth your eyes are touching</p>
-	<p>Then why, as you stare, you see nothing?</p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-	<p>This is where it all goes wrong,</p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-	<p>You were looking at yourself all along.</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>...</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>If that's the truth your eyes are touching</p>
+    <p>Then why, as you stare, you see nothing?</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>This is where it all goes wrong,</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>You were looking at yourself all along.</p>
 </div>
 <br>
 <br>
@@ -267,7 +264,7 @@
 <br>
 <br>
 <div class="separation">
-	<p>✦</p>
+    <p>✦</p>
 </div>
 <br>
 <br>
@@ -280,7 +277,7 @@
 <br>
 <br>
 <div class="content2">
-<p>follow the vast wonders of the stars</p>
+    <p>follow the vast wonders of the stars</p>
 </div>
 <br>
 <br>
@@ -291,10 +288,35 @@
 <br>
 <br>
 <footer>
-<script type="text/javascript" src="//counter.websiteout.com/js/7/0/1360/0"></script>
+    <script type="text/javascript" src="//counter.websiteout.com/js/7/0/1360/0"></script>
     <p style="font-size: 9px; text-align: center;">© 2024 Maja Braumberger</p>
 </footer>
 <script>
+    
+    let isScrolling = false;
+    let scrollInterval;
+
+    function startScrolling() {
+        if (!isScrolling) {
+            isScrolling = true;
+            scrollInterval = setInterval(() => {
+                window.scrollBy(0, 1); 
+            }, 20); 
+        }
+    }
+
+    function stopScrolling() {
+        if (isScrolling) {
+            clearInterval(scrollInterval);
+            isScrolling = false;
+        }
+    }
+
+    
+    setTimeout(startScrolling, 5000);
+
+    document.body.addEventListener('click', stopScrolling);
+
     window.addEventListener('scroll', function() {
         var visibleHeight = window.innerHeight;
         var totalHeight = document.body.clientHeight;
