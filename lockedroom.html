@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locked Room</title>
     <style>
+        
+        @font-face {
+            font-family: 'DINEngschrift';
+            src: url('DINEngschrift.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             background-color: black;
             color: white;
-            font-family: 'Coolvetica', sans-serif;
+            font-family: 'DINEngschrift', sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
@@ -18,10 +26,12 @@
             align-items: center;
             flex-direction: column;
         }
+
         h1 {
             opacity: 0;
             transition: opacity 2s ease-in;
         }
+
         #text {
             display: none;
             white-space: pre-wrap;
