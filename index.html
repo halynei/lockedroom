@@ -210,6 +210,16 @@
             opacity: 0; 
             animation: fadeInImage 1s forwards; 
         }
+
+        .dynamic-text {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            opacity: 0.4;
+            font-size: 14px;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -291,10 +301,43 @@
     <script type="text/javascript" src="//counter.websiteout.com/js/7/0/1360/0"></script>
     <p style="font-size: 9px; text-align: center;">© 2024 Maja Braumberger</p>
 </footer>
+
+<div id="dynamic-text" class="dynamic-text"></div>
+
 <script>
-    
     let isScrolling = false;
     let scrollInterval;
+    let hasScrolled = false;  
+    const dynamicText = document.getElementById('dynamic-text');
+    const initialText = "let the creation do its work...";
+    const clickText = "click anywhere to stop";
+
+    function typeText(text, callback) {
+        let index = 0;
+        dynamicText.textContent = ''; 
+        const interval = setInterval(() => {
+            if (index < text.length) {
+                dynamicText.textContent += text[index];
+                index++;
+            } else {
+                clearInterval(interval);
+                if (callback) callback();
+            }
+        }, 100); 
+    }
+
+    function fadeOutText(callback) {
+        dynamicText.style.transition = 'opacity 0.5s';
+        dynamicText.style.opacity = 0;
+
+        setTimeout(() => {
+            dynamicText.textContent = ''; 
+            if (callback) callback();
+        }, 500); 
+    }
+
+  
+    typeText(initialText);
 
     function startScrolling() {
         if (!isScrolling) {
@@ -312,22 +355,30 @@
         }
     }
 
-    
     setTimeout(startScrolling, 5000);
 
     document.body.addEventListener('click', stopScrolling);
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
+        if (!hasScrolled && window.scrollY > 0) {  
+            hasScrolled = true; 
+            fadeOutText(() => {
+                typeText(clickText); 
+            });
+        }
+
         var visibleHeight = window.innerHeight;
         var totalHeight = document.body.clientHeight;
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         var remainingHeight = totalHeight - (visibleHeight + scrollTop);
         var footerHeight = document.querySelector('footer').offsetHeight;
+
         if (remainingHeight < footerHeight) {
             document.querySelector('footer').classList.add('visible');
         } else {
             document.querySelector('footer').classList.remove('visible');
         }
+
         if (scrollTop > (document.querySelector('.large-image').offsetTop - visibleHeight)) {
             document.querySelector('header').classList.add('hidden');
             document.querySelector('nav').classList.add('hidden');
