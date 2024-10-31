@@ -216,7 +216,7 @@
             bottom: 20px;
             right: 20px;
             color: white;
-            opacity: 1;
+            opacity: 0.6;
             font-size: 14px;
             text-align: right;
         }
@@ -227,7 +227,7 @@
             bottom: 20px;
             left: 20px;
             color: gray;
-            opacity: 1;
+            opacity: 0.4;
             font-size: 14px;
             text-align: left;
         }
@@ -320,6 +320,7 @@
     let isScrolling = false;
     let scrollInterval;
     let hasScrolled = false;  
+    let leftTextVisible = true; 
     const dynamicText = document.getElementById('dynamic-text');
     const dynamicTextLeft = document.getElementById('dynamic-text-left'); 
     const initialText = "let the creation do its work...";
@@ -358,7 +359,7 @@
             scrollInterval = setInterval(() => {
                 window.scrollBy(0, 1); 
             }, 20); 
-            typeText(dynamicTextLeft, leftText); 
+            if (leftTextVisible) typeText(dynamicTextLeft, leftText); 
         }
     }
 
@@ -366,6 +367,11 @@
         if (isScrolling) {
             clearInterval(scrollInterval);
             isScrolling = false;
+            if (leftTextVisible) {
+                dynamicTextLeft.style.transition = 'opacity 0.5s';
+                dynamicTextLeft.style.opacity = 0;
+                leftTextVisible = false; 
+            }
         }
     }
 
