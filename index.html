@@ -39,6 +39,7 @@
             font-family: 'Coolvetica', sans-serif;
             color: white;
             background-color: black;
+	    animation: fadeIn 3s;
         }
 
         header, footer {
@@ -69,6 +70,19 @@
         opacity: 1; 
     }
 }
+
+@keyframes blink2 {
+    0% {
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0.92; 
+    }
+    100% {
+        opacity: 1; 
+    }
+}
+
 
 .separation p {
     font-size: 50px;
@@ -229,7 +243,9 @@
             height: auto;
             display: block;
             opacity: 0; 
-            animation: fadeInImage 1s forwards; 
+            animation: fadeInImage 3s forwards; 
+	    animation: blink2 0.25s infinite;
+	   
         }
 
         .dynamic-text {
