@@ -376,6 +376,7 @@
 <div id="dynamic-text" class="dynamic-text"></div>
 <div id="dynamic-text-left" class="dynamic-text-left"></div> 
 
+
 <script>
     let isScrolling = false;
     let scrollInterval;
@@ -447,9 +448,16 @@
             });
         }
 
+        // Zmienione: sprawdzenie, czy osiągnięto koniec strony
         var visibleHeight = window.innerHeight;
-        var totalHeight = document.body.clientHeight;
+        var totalHeight = document.body.scrollHeight; // Całkowita wysokość strony
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Jeśli użytkownik dotrze do końca strony, zatrzymaj przewijanie
+        if (scrollTop + visibleHeight >= totalHeight) {
+            stopScrolling();
+        }
+
         var remainingHeight = totalHeight - (visibleHeight + scrollTop);
         var footerHeight = document.querySelector('footer').offsetHeight;
 
