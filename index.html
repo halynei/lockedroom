@@ -83,6 +83,18 @@
     }
 }
 
+@keyframes blink3 {
+    0% {
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0.85; 
+    }
+    100% {
+        opacity: 1; 
+    }
+}
+
 
 .separation p {
     font-size: 50px;
@@ -146,6 +158,12 @@
         }
 
         .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+	.header-image2 {
             width: 100%;
             height: auto;
             display: block;
@@ -247,6 +265,15 @@
 	    animation: blink2 0.25s infinite;
 	   
         }
+       .header-image2 {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0; 
+            animation: fadeInImage 3s forwards; 
+	    animation: blink3 0.6s infinite;
+	   
+        }
 
         .dynamic-text {
             position: fixed;
@@ -317,7 +344,7 @@
 <br>
 <br>
 <img class="header-image" src="header.jpg" alt="Header Image">
-<img class="header-image" src="index1.webp" alt="Header Image">
+<img class="header-image2" src="index1.webp" alt="Header Image">
 <img class="header-image" src="index2.webp" alt="Header Image">
 <br>
 <br>
