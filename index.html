@@ -276,29 +276,6 @@
             opacity: 0; 
             animation: fadeInImage 3s forwards; 
 	    animation: blink3 0.6s infinite;
-	   
-        }
-
-        .dynamic-text {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            color: white;
-            opacity: 0.6;
-            font-size: 14px;
-            text-align: right;
-            font-weight: bold;
-        }
-
-        
-        .dynamic-text-left {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            color: gray;
-            opacity: 0.4;
-            font-size: 9px;
-            text-align: left;
         }
     </style>
 </head>
@@ -381,93 +358,18 @@
     <p style="font-size: 9px; text-align: center;">© 2024 Maja Braumberger</p>
 </footer>
 
-<div id="dynamic-text" class="dynamic-text"></div>
-<div id="dynamic-text-left" class="dynamic-text-left"></div> 
 
 
 <script>
-    let isScrolling = false;
-    let scrollInterval;
-    let hasScrolled = false;  
-    let leftTextVisible = true; 
-    const dynamicText = document.getElementById('dynamic-text');
-    const dynamicTextLeft = document.getElementById('dynamic-text-left'); 
-    const initialText = "let the creation do its work...";
-    const clickText = "click anywhere to stop";
-    const leftText = "click anywhere to stop"; 
 
-    function typeText(textElement, text, callback) {
-        let index = 0;
-        textElement.textContent = ''; 
-        const interval = setInterval(() => {
-            if (index < text.length) {
-                textElement.textContent += text[index];
-                index++;
-            } else {
-                clearInterval(interval);
-                if (callback) callback();
-            }
-        }, 100); 
-    }
-
-    function fadeOutText(callback) {
-        dynamicText.style.transition = 'opacity 0.5s';
-        dynamicText.style.opacity = 0;
-
-        setTimeout(() => {
-            dynamicText.textContent = ''; 
-            if (callback) callback();
-        }, 500); 
-    }
-
-    typeText(dynamicText, initialText);
-
-    function startScrolling() {
-        if (!isScrolling) {
-            isScrolling = true;
-            scrollInterval = setInterval(() => {
-                window.scrollBy(0, 1); 
-            }, 20); 
-            if (leftTextVisible) typeText(dynamicTextLeft, leftText); 
-        }
-    }
-
-    function stopScrolling() {
-        if (isScrolling) {
-            clearInterval(scrollInterval);
-            isScrolling = false;
-            if (leftTextVisible) {
-                dynamicTextLeft.style.transition = 'opacity 0.5s';
-                dynamicTextLeft.style.opacity = 0;
-                leftTextVisible = false; 
-            }
-        }
-    }
-
-    setTimeout(startScrolling, 5000);
-
-    document.body.addEventListener('click', stopScrolling);
-
-    window.addEventListener('scroll', function () {
-        if (!hasScrolled && window.scrollY > 0) {  
-            hasScrolled = true; 
-            fadeOutText(() => {
-                typeText(dynamicText, clickText); 
-            });
-        }
-
-        // Zmienione: sprawdzenie, czy osiągnięto koniec strony
+    document.addEventListener('scroll', function () {
+        var totalHeight = document.body.scrollHeight;
         var visibleHeight = window.innerHeight;
-        var totalHeight = document.body.scrollHeight; // Całkowita wysokość strony
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Jeśli użytkownik dotrze do końca strony, zatrzymaj przewijanie
-        if (scrollTop + visibleHeight >= totalHeight) {
-            stopScrolling();
-        }
+        var scrollTop = window.scrollY;
 
         var remainingHeight = totalHeight - (visibleHeight + scrollTop);
         var footerHeight = document.querySelector('footer').offsetHeight;
+
 
         if (remainingHeight < footerHeight) {
             document.querySelector('footer').classList.add('visible');
@@ -475,7 +377,8 @@
             document.querySelector('footer').classList.remove('visible');
         }
 
-        if (scrollTop > (document.querySelector('.large-image').offsetTop - visibleHeight)) {
+        
+        if (scrollTop > 50) { // Próg przewijania do ukrycia nagłówka
             document.querySelector('header').classList.add('hidden');
             document.querySelector('nav').classList.add('hidden');
         } else {
@@ -483,6 +386,7 @@
             document.querySelector('nav').classList.remove('hidden');
         }
     });
+
 </script>
 </body>
 </html>
