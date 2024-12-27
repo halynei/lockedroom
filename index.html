@@ -11,6 +11,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
+
         body {
             margin: 0;
             padding: 0;
@@ -67,7 +72,7 @@
         .separation {
             padding-top: 0;
             text-align: center;
-            font-weight: medium;
+            font-weight: thin;
             font-size: 50px;
             color: white;
         }
@@ -76,7 +81,7 @@
             padding-top: 0;
             text-align: center;
             font-weight: medium;
-            font-size: 20px;
+            font-size: 12px;
             color: darkgray;
             animation: fadeIn 10s forwards;
         }
@@ -93,8 +98,9 @@
         .hidden-text {
             display: block;
             text-align: center;
+	    font-weight: thin;
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 12px;
             color: darkgray;
             opacity: 0;
             max-height: 0;
@@ -289,18 +295,18 @@
 
 <div class="content">
     <div id="initial-text">
-        <p>Eyes evicted, depths wide open,</p>
-        <p>The barrier is finally broken.</p>
+        <p>eyes evicted, depths wide open,</p>
+        <p>the barrier is finally broken.</p>
     </div>
     <div id="hidden-text" class="hidden-text">
         <p>...</p>
         <br>
-        <p>If that's the truth your eyes are touching</p>
-        <p>Then why, as you stare, you see nothing?</p>
+        <p>if that's the truth your eyes are touching</p>
+        <p>then why, as you stare, you see nothing?</p>
         <br>
-        <p>This is where it all goes wrong,</p>
+        <p>this is where it all goes wrong,</p>
         <br>
-        <p>You were looking at yourself all along.</p>
+        <p>you were looking at yourself all along.</p>
     </div>
 
     <div class="separation">
@@ -413,6 +419,10 @@
             document.querySelector('header').classList.remove('hidden');
             document.querySelector('nav').classList.remove('hidden');
         }
+
+
+
+
     });
 </script>
 
