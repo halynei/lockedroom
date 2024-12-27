@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <link rel="icon" href="skullfavicon.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,46 +9,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
 
-        @media only screen and (max-width: 600px) {
-            body {
-                font-size: 14px;
-            }
-
-            header h1 {
-                font-size: 20px;
-            }
-
-            nav {
-                padding: 10px 0;
-            }
-
-            .small-image {
-                width: calc(50% - 5px);
-            }
-        }
-
-        @media only screen and (min-width: 601px) {
-            .small-images {
-                justify-content: center;
-            }
-        }
-
         body {
             margin: 0;
             padding: 0;
             font-family: 'Coolvetica', sans-serif;
             color: white;
             background-color: black;
-	    animation: fadeIn 3s;
-        }
-        #w {
-  	  display: none;
-	  }
-
-        header, footer {
-            background-color: rgba(17, 17, 17, 0.8);
-            opacity: 0;
-            animation: fadeIn 1s forwards;
+            animation: fadeIn 3s;
         }
 
         @keyframes fadeIn {
@@ -61,54 +27,94 @@
             }
         }
 
+        .separation {
+            padding-top: 60px;
+            text-align: center;
+            font-weight: medium;
+            font-size: 50px;
+            color: white;
+        }
 
+        .content {
+            padding-top: 120px;
+            text-align: center;
+            font-weight: medium;
+            font-size: 20px;
+            color: darkgray;
+            animation: fadeIn 10s forwards;
+        }
 
-@keyframes blink {
-    0% {
-        opacity: 1; 
-    }
-    50% {
-        opacity: 0.25; 
-    }
-    100% {
-        opacity: 1; 
-    }
-}
+        .content2 {
+            padding-top: 30px;
+            text-align: center;
+            font-weight: medium;
+            font-style: italic;
+            font-size: 10px;
+            color: rgb(128, 128, 128);
+        }
 
-@keyframes blink2 {
-    0% {
-        opacity: 1; 
-    }
-    50% {
-        opacity: 0.97; 
-    }
-    100% {
-        opacity: 1; 
-    }
-}
+        .hidden-text {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+            color: darkgray;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 1s ease, max-height 1s ease;
+	}
 
-@keyframes blink3 {
-    0% {
-        opacity: 1; 
-    }
-    50% {
-        opacity: 0.92; 
-    }
-    100% {
-        opacity: 1; 
-    }
-}
+        .hidden-text.visible {
+            opacity: 1;
+            max-height: 1000px;
+        }
 
+        #toggle-star {
+            cursor: pointer;
+            font-size: 30px;
+            color: #fff;
+        }
 
-.separation p {
-    font-size: 50px;
-    animation: blink 1s infinite; 
-}
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+	.header-image2 {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-.content2 p {
-    font-size: 10px;
-    animation: blink 2s infinite; 
-}
+        footer {
+            padding: 5px 0;
+            text-align: center;
+            position: fixed;
+            bottom: -60px;
+            width: 100%;
+            z-index: 1;
+            background-color: rgba(17, 17, 17, 0.8);
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            transition: bottom 0.5s;
+        }
+
+        footer.visible {
+            bottom: 0;
+        }
+
+        footer a {
+            color: gray;
+            text-decoration: none;
+            transition: color 0.3s;
+            margin: 0 10px;
+            text-transform: lowercase;
+        }
+
+        footer a:hover {
+            color: white;
+        }
 
         header {
             padding: 0;
@@ -161,106 +167,56 @@
             color: white;
         }
 
-        .header-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
 
-	.header-image2 {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
 
-        .content {
-            padding-top: 120px;
-            text-align: center;
-            font-weight: medium;
-            font-size: 20px;
-            color: darkgray;
-	    animation: fadeIn 10s forwards;
-        }
-        
-        .content2 {
-            padding-top: 30px;
-            text-align: center;
-            font-weight: medium;
-            font-style: italic;
-            font-size: 10px;
-            color: rgb(128, 128, 128);
-        }
+@keyframes blink {
+    0% {
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0.25; 
+    }
+    100% {
+        opacity: 1; 
+    }
+}
 
-        .small-images {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
+@keyframes blink2 {
+    0% {
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0.97; 
+    }
+    100% {
+        opacity: 1; 
+    }
+}
 
-        .small-image {
-            width: calc(33.33% - 10px);
-            height: auto;
-            margin-right: 0;
-        }
+@keyframes blink3 {
+    0% {
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0.92; 
+    }
+    100% {
+        opacity: 1; 
+    }
+}
 
-        .large-image {
-            width: 100%;
-            height: auto;
-            margin-top: 20px;
-        }
 
-        .widget-container {
-            text-align: center;
-            margin-top: 20px;
-        }
+	.separation p {
+    	  font-size: 50px;
+          animation: blink 1s infinite; 
+	}
 
-        footer {
-            padding: 5px 0;
-            text-align: center;
-            position: fixed;
-            bottom: -60px;
-            width: 100%;
-            z-index: 1;
-            background-color: rgba(17, 17, 17, 0.8);
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-            transition: bottom 0.5s;
-        }
+	.content2 p {
+          font-size: 10px;
+          animation: blink 2s infinite; 
+	}
 
-        footer.visible {
-            bottom: 0;
-        }
-
-        footer a {
-            color: gray;
-            text-decoration: none;
-            transition: color 0.3s;
-            margin: 0 10px;
-            text-transform: lowercase;
-        }
-
-        footer a:hover {
-            color: white;
-        }
-
-        .separation {
-            padding-top: 60px;
-            text-align: center;
-            font-weight: medium;
-            font-size: 50px;
-            color: white;
-        }
-
-        @keyframes fadeInImage {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .header-image {
+	.header-image {
             width: 100%;
             height: auto;
             display: block;
@@ -277,10 +233,10 @@
             animation: fadeInImage 3s forwards; 
 	    animation: blink3 0.6s infinite;
         }
-    </style>
+
+</style>
 </head>
 <body>
-	
 <header>
     <br>
     <h1><a href="lockedroom.html">inside of a locked room</a></h1>
@@ -292,75 +248,63 @@
 </header>
 
 <img class="header-image" src="header.webp" alt="Header Image">
-<br>
-<div class="content">
-    <p>Eyes evicted, depths wide open,</p>
-    <p>The barrier is finally broken.</p>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <p>...</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p>If that's the truth your eyes are touching</p>
-    <p>Then why, as you stare, you see nothing?</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p>This is where it all goes wrong,</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p>You were looking at yourself all along.</p>
+<br>
+
+<div class="content">
+    <div id="initial-text">
+        <p>Eyes evicted, depths wide open,</p>
+        <p>The barrier is finally broken.</p>
+    </div>
+    <div id="hidden-text" class="hidden-text">
+        <p>...</p>
+<br>
+        <p>If that's the truth your eyes are touching</p>
+        <p>Then why, as you stare, you see nothing?</p>
+<br>
+        <p>This is where it all goes wrong,</p>
+<br>
+        <p>You were looking at yourself all along.</p>
+    </div>
+
+    <div class="separation">
+        <p id="toggle-star">✦</p>
+    </div>
 </div>
-<br>
-<br>
-<br>
-<br>
+
+<br><br><br><br>
 <img class="header-image" src="header.jpg" alt="Header Image">
 <img class="header-image2" src="index1.webp" alt="Header Image">
 <img class="header-image" src="index2.webp" alt="Header Image">
-<br>
-<br>
-<br>
-<br>
-
+<br><br><br><br>
 
 <div class="separation">
     <p>✦</p>
 </div>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br>
 
 <div class="content2">
     <p>follow the vast wonders of the stars</p>
 </div>
 
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br>
 <div id="w">
-<a> </a>
+    <a> </a>
 </div>
 <footer>
-    
     <p style="font-size: 9px; text-align: center;">© 2024 Maja Braumberger</p>
 </footer>
 
-
-
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleStar = document.getElementById('toggle-star');
+        const hiddenText = document.getElementById('hidden-text');
+
+        toggleStar.addEventListener('click', function () {
+            // Toggle the 'visible' class to show or hide the hidden text
+            hiddenText.classList.toggle('visible');
+        });
+    });
 
     document.addEventListener('scroll', function () {
         var totalHeight = document.body.scrollHeight;
@@ -370,14 +314,12 @@
         var remainingHeight = totalHeight - (visibleHeight + scrollTop);
         var footerHeight = document.querySelector('footer').offsetHeight;
 
-
         if (remainingHeight < footerHeight) {
             document.querySelector('footer').classList.add('visible');
         } else {
             document.querySelector('footer').classList.remove('visible');
         }
 
-        
         if (scrollTop > 50) { 
             document.querySelector('header').classList.add('hidden');
             document.querySelector('nav').classList.add('hidden');
@@ -386,7 +328,7 @@
             document.querySelector('nav').classList.remove('hidden');
         }
     });
-
 </script>
+
 </body>
 </html>
