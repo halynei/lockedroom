@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="a dream">
     <title>inside of a locked room</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
 
@@ -16,6 +18,8 @@
             color: white;
             background-color: black;
             animation: fadeIn 3s;
+            overflow: auto; 
+	    position: relative;
         }
 
         @keyframes fadeIn {
@@ -27,8 +31,41 @@
             }
         }
 
+        /* Tło z animacją gwiazd */
+        #sky {
+            position: fixed; //fixed or absolute//
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Usunięto nadmiarowe ograniczenie wysokości */
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: none;
+        }
+
+        /* Definicja animacji gwiazd */
+        @keyframes blink {
+            0% {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+        }
+
         .separation {
-            padding-top: 60px;
+            padding-top: 0;
             text-align: center;
             font-weight: medium;
             font-size: 50px;
@@ -36,7 +73,7 @@
         }
 
         .content {
-            padding-top: 120px;
+            padding-top: 0;
             text-align: center;
             font-weight: medium;
             font-size: 20px;
@@ -45,7 +82,7 @@
         }
 
         .content2 {
-            padding-top: 30px;
+            padding-top: 0;
             text-align: center;
             font-weight: medium;
             font-style: italic;
@@ -63,7 +100,7 @@
             max-height: 0;
             overflow: hidden;
             transition: opacity 1s ease, max-height 1s ease;
-	}
+        }
 
         .hidden-text.visible {
             opacity: 1;
@@ -77,11 +114,6 @@
         }
 
         .header-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-	.header-image2 {
             width: 100%;
             height: auto;
             display: block;
@@ -118,14 +150,16 @@
 
         header {
             padding: 0;
+	    margin: 0;
             text-align: center;
+	    background-color: black;
             width: 100%;
             z-index: 1;
             transition: top 0.5s;
         }
 
         header.hidden {
-            top: -60px;
+            top: 0;
         }
 
         header h1 {
@@ -144,6 +178,7 @@
 
         nav {
             padding: 20px 0;
+	    margin: 0;
             text-align: center;
             width: 100%;
             z-index: 1;
@@ -167,76 +202,75 @@
             color: white;
         }
 
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.25;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
+        @keyframes blink2 {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.97;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
-@keyframes blink {
-    0% {
-        opacity: 1; 
-    }
-    50% {
-        opacity: 0.25; 
-    }
-    100% {
-        opacity: 1; 
-    }
-}
+        @keyframes blink3 {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.92;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
-@keyframes blink2 {
-    0% {
-        opacity: 1; 
-    }
-    50% {
-        opacity: 0.97; 
-    }
-    100% {
-        opacity: 1; 
-    }
-}
+        .separation p {
+            font-size: 50px;
+            animation: blink 1s infinite;
+        }
 
-@keyframes blink3 {
-    0% {
-        opacity: 1; 
-    }
-    50% {
-        opacity: 0.92; 
-    }
-    100% {
-        opacity: 1; 
-    }
-}
+        .content2 p {
+            font-size: 10px;
+            animation: blink 2s infinite;
+        }
 
-
-	.separation p {
-    	  font-size: 50px;
-          animation: blink 1s infinite; 
-	}
-
-	.content2 p {
-          font-size: 10px;
-          animation: blink 2s infinite; 
-	}
-
-	.header-image {
+        .header-image {
             width: 100%;
             height: auto;
             display: block;
-            opacity: 0; 
-            animation: fadeInImage 3s forwards; 
-	    animation: blink2 0.25s infinite;
-	   
+            opacity: 0;
+            animation: fadeInImage 3s forwards;
+            animation: blink2 0.25s infinite;
         }
-       .header-image2 {
+
+        .header-image2 {
             width: 100%;
             height: auto;
             display: block;
-            opacity: 0; 
-            animation: fadeInImage 3s forwards; 
-	    animation: blink3 0.6s infinite;
+            opacity: 0;
+            animation: fadeInImage 3s forwards;
+            animation: blink3 0.6s infinite;
         }
-
-</style>
+    </style>
 </head>
 <body>
+
+<div id="sky"></div>
+
 <header>
     <br>
     <h1><a href="lockedroom.html">inside of a locked room</a></h1>
@@ -250,6 +284,8 @@
 <img class="header-image" src="header.webp" alt="Header Image">
 
 <br>
+<br>
+<br>
 
 <div class="content">
     <div id="initial-text">
@@ -258,12 +294,12 @@
     </div>
     <div id="hidden-text" class="hidden-text">
         <p>...</p>
-<br>
+        <br>
         <p>If that's the truth your eyes are touching</p>
         <p>Then why, as you stare, you see nothing?</p>
-<br>
+        <br>
         <p>This is where it all goes wrong,</p>
-<br>
+        <br>
         <p>You were looking at yourself all along.</p>
     </div>
 
@@ -272,7 +308,10 @@
     </div>
 </div>
 
-<br><br><br><br>
+<br>
+<br>
+
+
 <img class="header-image" src="header.jpg" alt="Header Image">
 <img class="header-image2" src="index1.webp" alt="Header Image">
 <img class="header-image" src="index2.webp" alt="Header Image">
@@ -293,12 +332,58 @@
 </footer>
 
 <script>
+    function createStars(numStars) {
+        for (let i = 0; i < numStars; i++) {
+            drawStar();
+        }
+    }
+
+    function drawStar() {
+        var tmpStar = document.createElement('div');
+        tmpStar.className = "star";
+        tmpStar.style.top = Math.random() * 100 + '%';
+        tmpStar.style.left = Math.random() * 100 + '%';
+        tmpStar.style.width = Math.random() * 2 + 'px';
+        tmpStar.style.height = tmpStar.style.width;
+        tmpStar.style.animationDuration = (Math.random() * 2 + 1) * 1.5 + 's';
+        tmpStar.style.animationDelay = (Math.random() * 2) * 1.5 + 's';
+
+        document.getElementById('sky').appendChild(tmpStar);
+    }
+
+    function selectStars() {
+        return document.querySelectorAll(".star");
+    }
+
+    function animateStars() {
+        var stars = selectStars();
+        stars.forEach(function(el) {
+            TweenMax.to(el, (Math.random() * 0.5 + 0.5) * 1.5, {
+                opacity: Math.random() * 0.5 + 0.2,
+                scale: Math.random() * 1.5 + 0.5,
+                yoyo: true,
+                repeat: -1,
+                repeatDelay: (Math.random() * 2 + 1) * 1.5,
+                ease: Power1.easeInOut
+            });
+
+            TweenMax.to(el, (Math.random() * 3 + 2) * 1.5, {
+                y: Math.random() * 20 + 10,
+                yoyo: true,
+                repeat: -1,
+                ease: Power1.easeInOut
+            });
+        });
+    }
+
+    createStars(200);
+    animateStars();
+
     document.addEventListener('DOMContentLoaded', function () {
         const toggleStar = document.getElementById('toggle-star');
         const hiddenText = document.getElementById('hidden-text');
 
         toggleStar.addEventListener('click', function () {
-            
             hiddenText.classList.toggle('visible');
         });
     });
@@ -317,7 +402,7 @@
             document.querySelector('footer').classList.remove('visible');
         }
 
-        if (scrollTop > 50) { 
+        if (scrollTop > 50) {
             document.querySelector('header').classList.add('hidden');
             document.querySelector('nav').classList.add('hidden');
         } else {
