@@ -11,6 +11,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
 
+	html {
+  	   scroll-behavior: smooth;
+	}
+
 
 
 
@@ -28,7 +32,7 @@
             font-family: 'Coolvetica', sans-serif;
             color: white;
             background-color: black;
-            animation: fadeIn 4.5s;
+            animation: fadeIn 2.5s;
             overflow: auto; 
 	    position: relative;
         }
@@ -286,7 +290,9 @@
 
 <header>
     <br>
-    <h1 class="glitch-text"><a href="lockedroom.html">inside of a locked room</a></h1>
+<h1 id="dynamic-title" class="glitch-text"><a href="lockedroom.html">inside of a locked room</a></h1>
+
+
 
     <nav>
         <a href="about.html" class="page-link">About</a>
@@ -427,6 +433,7 @@
             document.querySelector('header').classList.remove('hidden');
             document.querySelector('nav').classList.remove('hidden');
         }
+
 
 
 
