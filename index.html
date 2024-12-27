@@ -129,11 +129,44 @@
             font-size: 30px;
             color: #fff;
         }
-
-        .header-image {
+	
+	
+	
+	.mainheader-image {
             width: 100%;
             height: auto;
             display: block;
+            opacity: 0;
+            animation: fadeInImage 3s forwards;
+            animation: blink2 0.25s infinite;
+        }
+
+	.header-image, .header-image2 {
+            border-radius: 10px; /* Zaokrąglenie narożników ramek */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień wokół ramek */
+            Margin: auto;
+            display: block;
+	    justify-content: center;
+
+
+ 
+	}
+
+ 	.header-image {
+            width: 50%;
+            height: auto;
+            opacity: 0;
+            animation: fadeInImage 3s forwards;
+            animation: blink2 0.25s infinite;
+	    
+        }
+
+        .header-image2 {
+            width: 50%;
+            height: auto;
+            opacity: 0;
+            animation: fadeInImage 3s forwards;
+            animation: blink3 0.6s infinite;
         }
 
         footer {
@@ -265,23 +298,10 @@
             animation: blink 2s infinite;
         }
 
-        .header-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            opacity: 0;
-            animation: fadeInImage 3s forwards;
-            animation: blink2 0.25s infinite;
-        }
 
-        .header-image2 {
-            width: 100%;
-            height: auto;
-            display: block;
-            opacity: 0;
-            animation: fadeInImage 3s forwards;
-            animation: blink3 0.6s infinite;
-        }
+
+
+       
     </style>
 </head>
 <body>
@@ -301,7 +321,7 @@
     </nav>
 </header>
 
-<img class="header-image" src="header.webp" alt="Header Image">
+<img class="mainheader-image" src="header.webp" alt="Header Image">
 
 <br>
 <br>
@@ -332,11 +352,12 @@
 <br>
 
 
-<img class="header-image" src="index1.webp" alt="Header Image">
+	<img class="header-image" src="index1.webp" alt="Header Image">
+<br>
+	<img class="header-image2" src="index2.webp" alt="Header Image">
+<br>
+	<img class="header-image" src="index3.webp" alt="Header Image">
 
-<img class="header-image2" src="index2.webp" alt="Header Image">
-
-<img class="header-image" src="index3.webp" alt="Header Image">
 <br><br><br><br>
 
 <br><br><br><br>
