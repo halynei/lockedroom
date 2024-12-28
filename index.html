@@ -8,7 +8,10 @@
     <title>inside of a locked room</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js"></script>
 
+
+
     <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Coolvetica&display=swap');
 
 	html {
@@ -18,13 +21,68 @@
 
 
 
+				/*STYLE - HEADER & NAVIGATION*/
+
+        header {
+            padding: 0;
+	    margin: 0;
+            text-align: center;
+	    background-color: black;
+            width: 100%;
+            z-index: 1;
+            transition: top 0.5s;
+        }
+
+        header.hidden {
+            top: 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 27px;
+            font-weight: bold;
+            text-transform: lowercase;
+            text-align: center;
+        }
+
+        header h1 a {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        nav {
+            padding: 20px 0;
+	    margin: 0;
+            text-align: center;
+            width: 100%;
+            z-index: 1;
+            transition: top 0.5s;
+        }
+
+        nav.hidden {
+            top: -60px;
+        }
+
+        .page-link {
+            color: gray;
+            text-decoration: none;
+            margin: 0 10px;
+            text-transform: lowercase;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        .page-link:hover {
+            color: white;
+        }
 
 
 
+				/*STYLE - BODY [background, animations, images etc.]*/
 
-
-
-        body {
+	body {
             margin: 0;
             padding: 0;
             font-family: 'Coolvetica', sans-serif;
@@ -35,17 +93,7 @@
 	    position: relative;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-       
-        #sky {
+	#sky {
             position: fixed; //fixed or absolute//
             top: 0;
             left: 0;
@@ -55,28 +103,77 @@
 	    
         }
 
-        .star {
+
+	.star {
             position: absolute;
             background-color: white;
             border-radius: 50%;
             box-shadow: none;
         }
 
-       
-        @keyframes blink {
-            0% {
-                opacity: 0.2;
-                transform: scale(0.5);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0.2;
-                transform: scale(0.5);
-            }
+	.main-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 1;
+            animation: fadeInImage 3s forwards;
+          
         }
+
+        .hidden-text {
+            display: block;
+            text-align: center;
+	    font-weight: thin;
+            margin-top: 20px;
+            font-size: 12px;
+            color: darkgray;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 1s ease, max-height 1s ease;
+        }
+
+        .hidden-text.visible {
+            opacity: 1;
+            max-height: 1000px;
+        }
+
+        #toggle-star {
+            cursor: pointer;
+            font-size: 30px;
+            color: #fff;
+        }
+
+
+
+	.image1, .image2 {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+            margin: auto;
+            display: block;
+	    justify-content: center;
+
+
+ 
+	}
+
+ 	.image1 {
+            width: 50%;
+            height: auto;
+            opacity: 0;
+            animation: fadeInImage 3s forwards;
+            animation: blink2 0.25s infinite;
+	    
+        }
+
+        .image2 {
+            width: 50%;
+            height: auto;
+            opacity: 0;
+            animation: fadeInImage 3s forwards;
+            animation: blink3 0.6s infinite;
+        }
+       
 
         .separation {
             padding-top: 0;
@@ -104,68 +201,19 @@
             color: rgb(128, 128, 128);
         }
 
-        .hidden-text {
-            display: block;
-            text-align: center;
-	    font-weight: thin;
-            margin-top: 20px;
-            font-size: 12px;
-            color: darkgray;
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: opacity 1s ease, max-height 1s ease;
+        .separation p {
+            font-size: 50px;
+            animation: blink 1s infinite;
         }
 
-        .hidden-text.visible {
-            opacity: 1;
-            max-height: 1000px;
+        .content2 p {
+            font-size: 10px;
+            animation: blink 2s infinite;
         }
 
-        #toggle-star {
-            cursor: pointer;
-            font-size: 30px;
-            color: #fff;
-        }
-	
-	
-	
-	.mainheader-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            opacity: 1;
-            animation: fadeInImage 3s forwards;
-          
-        }
-
-	.header-image, .header-image2 {
-            border-radius: 10px; /* Zaokrąglenie narożników ramek */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień wokół ramek */
-            margin: auto;
-            display: block;
-	    justify-content: center;
 
 
- 
-	}
-
- 	.header-image {
-            width: 50%;
-            height: auto;
-            opacity: 0;
-            animation: fadeInImage 3s forwards;
-            animation: blink2 0.25s infinite;
-	    
-        }
-
-        .header-image2 {
-            width: 50%;
-            height: auto;
-            opacity: 0;
-            animation: fadeInImage 3s forwards;
-            animation: blink3 0.6s infinite;
-        }
+				/*STYLE - FOOTER*/
 
         footer {
             padding: 5px 0;
@@ -196,58 +244,33 @@
             color: gray;
         }
 
-        header {
-            padding: 0;
-	    margin: 0;
-            text-align: center;
-	    background-color: black;
-            width: 100%;
-            z-index: 1;
-            transition: top 0.5s;
+
+				/*STYLE - ANIMATIONS [keyframes, etc.]*/
+
+
+ 	@keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
-        header.hidden {
-            top: 0;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 27px;
-            font-weight: bold;
-            text-transform: lowercase;
-            text-align: center;
-        }
-
-        header h1 a {
-            color: inherit;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        nav {
-            padding: 20px 0;
-	    margin: 0;
-            text-align: center;
-            width: 100%;
-            z-index: 1;
-            transition: top 0.5s;
-        }
-
-        nav.hidden {
-            top: -60px;
-        }
-
-        .page-link {
-            color: gray;
-            text-decoration: none;
-            margin: 0 10px;
-            text-transform: lowercase;
-            transition: color 0.3s;
-            font-weight: bold;
-        }
-
-        .page-link:hover {
-            color: white;
+       
+        @keyframes blink {
+            0% {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
         }
 
         @keyframes blink {
@@ -285,20 +308,6 @@
                 opacity: 1;
             }
         }
-
-        .separation p {
-            font-size: 50px;
-            animation: blink 1s infinite;
-        }
-
-        .content2 p {
-            font-size: 10px;
-            animation: blink 2s infinite;
-        }
-
-
-
-
        
     </style>
 </head>
@@ -308,18 +317,18 @@
 
 <header>
     <br>
-<h1 id="dynamic-title" class="glitch-text"><a href="lockedroom.html">inside of a locked room</a></h1>
+<h1 class="header"><a href="lockedroom.html">inside of a locked room</a></h1>
 
 
 
     <nav>
-        <a href="about.html" class="page-link">About</a>
-        <a href="gallery.html" class="page-link">Gallery</a>
-        <a href="contact.html" class="page-link">Contact</a>
+        <a href="about.html" class="page-link">about</a>
+        <a href="gallery.html" class="page-link">gallery</a>
+        <a href="contact.html" class="page-link">contact</a>
     </nav>
 </header>
 
-<img class="mainheader-image" src="header.webp" alt="Header Image">
+<img class="main-image" src="header.webp" alt="Main Image">
 
 <br>
 <br>
@@ -343,17 +352,18 @@
     <div class="separation">
         <p id="toggle-star">✦</p>
     </div>
+
 </div>
 
 <br>
 <br>
 
 
-	<img class="header-image" src="index1.webp" alt="Header Image">
+	<img class="image1" src="index1.webp" alt="Image1">
 <br>
-	<img class="header-image2" src="index2.webp" alt="Header Image">
+	<img class="image2" src="index2.webp" alt="Image2">
 <br>
-	<img class="header-image" src="index3.webp" alt="Header Image">
+	<img class="image1" src="index3.webp" alt="Image1">
 
 <br><br><br><br>
 
