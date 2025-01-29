@@ -731,6 +731,18 @@ document.querySelectorAll('.links a').forEach(link => {  // Dostosowane do linkÃ
   window.addEventListener("resize", checkDevice);
 
 
+window.addEventListener("pageshow", function() {
+  // Przypadek po powrocie na stronÄ™ (np. z cache)
+  const videoContainer = document.getElementById('video-container');
+  videoContainer.style.visibility = 'visible'; 
+  videoContainer.style.opacity = '1'; 
+  
+  // Resetowanie animacji canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawStaticStars(); // Odzyskanie gwiazd
+});
+
+
 </script>
 
 
