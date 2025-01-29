@@ -374,7 +374,23 @@ html, body {
     }
 
 
+.video-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; /* Ustaw docelową szerokość wideo */
+  height: auto; /* Wysokość automatycznie dostosowana */
+  max-width: 90%; /* Ograniczenie maksymalnej szerokości na małych ekranach */
+  z-index: 3; /* Aby wideo było nad tłem */
+  overflow: hidden; /* Ukrywanie nadmiaru wideo */
+}
 
+.video-container video {
+  width: 100%; /* Skalowanie wideo w obrębie kontenera */
+  height: auto; /* Zachowanie proporcji */
+  object-fit: cover; /* Przycięcie wideo w razie potrzeby */
+}
 
 
 @media screen and (max-width: 768px) {
@@ -433,23 +449,34 @@ html, body {
       }
     }
 
-
 .video-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px; /* Ustaw docelową szerokość wideo */
-  height: auto; /* Wysokość automatycznie dostosowana */
-  max-width: 90%; /* Ograniczenie maksymalnej szerokości na małych ekranach */
-  z-index: 3; /* Aby wideo było nad tłem */
-  overflow: hidden; /* Ukrywanie nadmiaru wideo */
+  width: 300px;
+  height: auto;
+  max-width: 90%;
+  z-index: 3;
+  overflow: hidden;
 }
 
-.video-container video {
-  width: 100%; /* Skalowanie wideo w obrębie kontenera */
-  height: auto; /* Zachowanie proporcji */
-  object-fit: cover; /* Przycięcie wideo w razie potrzeby */
+/* Domyślnie ukrywamy GIF */
+.gif-element {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+/* Ukrywamy wideo i pokazujemy GIF na telefonach */
+@media screen and (max-width: 768px) {
+  .video-element {
+    display: none;
+  }
+
+  .gif-element {
+    display: block;
+  }
 }
 
 
@@ -486,16 +513,19 @@ html, body {
   </div>
 
 
-<div class="video-container" id="video-container" style="opacity: 0; visibility: hidden;">
-<video autoplay muted loop playsinline>
+<div class="video-container">
+  <video autoplay muted loop loading="lazy" class="video-element">
     <source src="visualsv.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <img src="visualsv.gif" alt="GIF animation" class="gif-element">
 </div>
 
 
 
-<a href="message.html" class="mobile-link">a short message to phone users [click me]</a>
+
+
+<a href="message.html" class="mobile-link">a short message for phone users [click me]</a>
   <div id="sky"></div>
 
 <script>
@@ -686,6 +716,19 @@ document.querySelectorAll('.links a').forEach(link => {  // Dostosowane do link�
   });
 });
 
+
+  function checkDevice() {
+    const video = document.getElementById("video");
+    const gif = document.getElementById("gif");
+
+    if (window.innerWidth <= 768) { // Jeśli ekran <= 768px (telefon)
+      video.style.display = "none"; // Ukryj wideo
+      gif.style.display = "block";  // Pokaż GIF
+    }
+  }
+
+  window.addEventListener("load", checkDevice);
+  window.addEventListener("resize", checkDevice);
 
 
 </script>
