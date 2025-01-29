@@ -263,6 +263,14 @@ p {
   object-fit: cover; /* Przycięcie wideo w razie potrzeby */
 }
 
+.media-container .gif {
+  display: none;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
 @media (min-width: 1201px) {
   .cloneable {
     font-size: 0.5vw;
@@ -552,6 +560,17 @@ a {
 	display: none;
     }
 
+@media screen and (max-width: 768px) {
+  .media-container video {
+    display: none;
+  }
+  
+  .media-container .gif {
+    display: block;
+  }
+}
+
+
 
   </style>
 </head>
@@ -597,13 +616,14 @@ a {
   </div>
 </section>
 
-  <div class="media-container">
-<video autoplay muted loop playsinline>
+<div class="media-container">
+  <video autoplay muted loop playsinline>
     <source src="visualsv2.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <img class="gif" src="visualsv2.gif" alt="visual 2">
 </div>
-</div>
+
 
   <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
   <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js'></script>
