@@ -30,23 +30,23 @@
     }
 
 html, body {
-  overflow-x: hidden; /* Wyłączenie przewijania w poziomie */
+  overflow-x: hidden; 
   margin: 0;
   padding: 0;
-  width: 100%; /* Ustawienie szerokości na viewport */
-  height: 100%; /* Ustawienie wysokości na viewport */
+  width: 100%; 
+  height: 100%; 
 }
 
-/* Poprawka dla Flexbox i elementów wychodzących poza ekran */
+
 * {
-  box-sizing: border-box; /* Upewnienie się, że padding i border nie przekraczają rozmiaru elementu */
+  box-sizing: border-box; 
 }
 
     #sky {
       height: 100vh;
       position: relative;
-      opacity: 1; /* Początkowa pełna widoczność */
-      transition: opacity 2s ease-in-out; /* Animacja wygaszenia */
+      opacity: 1; 
+      transition: opacity 2s ease-in-out; 
     }
 
     .star {
@@ -68,9 +68,9 @@ html, body {
 
 
 #sky, canvas {
-  width: 100vw; /* Ustaw szerokość na 100% viewportu */
-  height: 100vh; /* Ustaw wysokość na 100% viewportu */
-  overflow: hidden; /* Zapobiegaj wyjściu elementów poza obszar */
+  width: 100vw; 
+  height: 100vh; 
+  overflow: hidden; 
 }
 
 
@@ -222,7 +222,7 @@ html, body {
 
     @keyframes aurora-1 {
   0% { top: 0; right: 0; }
-  60% { top: 100%; right: 75%; } /* Zmniejsz liczbę kluczowych klatek */
+  60% { top: 100%; right: 75%; } 
   100% { top: 0; right: 0; }
 }
 
@@ -335,14 +335,14 @@ html, body {
   font-family: 'Swansea Regular', Arial, sans-serif;
   font-size: 0.7rem;
   display: flex;
-  flex-wrap: wrap; /* Linki przechodzą do następnej linii, jeśli są zbyt szerokie */
+  flex-wrap: wrap; 
   justify-content: space-between;
   width: 100%;
   position: absolute;
   top: 25px;
   left: 0;
   z-index: 2;
-  gap: 5px; /* Odstępy między linkami */
+  gap: 5px; 
 }
 
 
@@ -352,7 +352,7 @@ html, body {
   text-decoration: none;
   transition: color 0.2s;
   margin: 0 5px;
-  display: inline-block; /* Zapewnia odpowiednie zachowanie w flex */
+  display: inline-block; 
 }
 
 .links a:hover {
@@ -379,17 +379,17 @@ html, body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px; /* Ustaw docelową szerokość wideo */
-  height: auto; /* Wysokość automatycznie dostosowana */
-  max-width: 90%; /* Ograniczenie maksymalnej szerokości na małych ekranach */
-  z-index: 3; /* Aby wideo było nad tłem */
-  overflow: hidden; /* Ukrywanie nadmiaru wideo */
+  width: 300px; 
+  height: auto; 
+  max-width: 90%; 
+  z-index: 3; 
+  overflow: hidden; 
 }
 
 .video-container video {
-  width: 100%; /* Skalowanie wideo w obrębie kontenera */
-  height: auto; /* Zachowanie proporcji */
-  object-fit: cover; /* Przycięcie wideo w razie potrzeby */
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
 }
 
 
@@ -397,13 +397,13 @@ html, body {
   .links {
     font-family: 'Swansea Regular', Arial, sans-serif;
     font-size: 0.6rem;
-    display: flex; /* Flexbox */
-    justify-content: center; /* Wyśrodkowanie linków */
-    gap: 15px; /* Odstęp między linkami */
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
     position: absolute;
-    top: calc(20px + 2rem); /* Odstęp pod tytułem */
+    top: calc(20px + 2rem); 
     left: 50%;
-    transform: translateX(-50%); /* Wyśrodkowanie poziome */
+    transform: translateX(-50%); 
     z-index: 2;
   }
 
@@ -461,14 +461,14 @@ html, body {
   overflow: hidden;
 }
 
-/* Domyślnie ukrywamy GIF */
+
 .gif-element {
   display: none;
   width: 100%;
   height: auto;
 }
 
-/* Ukrywamy wideo i pokazujemy GIF na telefonach */
+
 @media screen and (max-width: 768px) {
   .video-element {
     display: none;
@@ -693,7 +693,7 @@ function removeLoadingScreen() {
   });
 
 
-// Nasz element do fade-out
+
 const fadeOutDuration = 2;  // Czas trwania animacji fade-out (w sekundach)
 
 // Funkcja do uruchomienia fade-out i przejścia do nowej strony
@@ -703,7 +703,7 @@ function fadeOutAndRedirect(link) {
     opacity: 0,
     duration: fadeOutDuration,
     onComplete: () => {
-      window.location.href = link;  // Po zakończeniu animacji przechodzimy do nowej strony
+      window.location.href = link;  // Po zakończeniu animacji do nowej strony
     }
   });
 }
